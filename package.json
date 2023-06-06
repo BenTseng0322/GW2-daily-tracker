@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/input.css -o ./build/css/styles.css"
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./build/css/styles.css --watch"
   },
   "author": "",
   "license": "ISC",
