@@ -76,7 +76,7 @@ const setStartTime = (card, now, timeList) => {
     }
 
     if (next == null)
-        next = time[0].add(1, 'day');
+        next = timeList[0].add(1, 'day');
 
     card.setAttribute('data-start-at', next.valueOf());
 }
