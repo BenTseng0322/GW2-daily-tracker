@@ -44,8 +44,16 @@ const init = () => {
         setStartTime(card, now, tl);
         updateTimeList(card, tl);
         hightlightNext(card);
+        updateCardTitle(card);
     }
     sortCards(cards);
+
+    for (let card of cards) {
+        card.querySelector('input').addEventListener('click', event => {
+            updateCardTitle(card)
+            sortCards(cards);
+        });
+    }
 };
 
 const updateTimeList = (card, timeList) => {
@@ -59,8 +67,9 @@ const updateTimeList = (card, timeList) => {
 
 const setStartTime = (card, now, timeList) => {
     let next = null;
-    for (time of timeList) {
-        if (now.isBefore(time)) {
+    for (let time of timeList) {
+        let delay = moment(time).add(3, 'minute');
+        if (now.isBefore(delay)) {
             next = time;
             break
         }
@@ -73,7 +82,10 @@ const setStartTime = (card, now, timeList) => {
 }
 
 const sortCards = (cards) => {
-    Array.from(cards)
+    Array.from(cards).filter(card => card.querySelector('input:checked') != null)
+        .forEach(card => card.style.order = 99);
+
+    Array.from(cards).filter(card => card.querySelector('input:checked') == null)
         .sort((a, b) => {
             return a.getAttribute("data-start-at") > b.getAttribute("data-start-at");
         })
@@ -93,14 +105,32 @@ const hightlightNext = (card) => {
         })
 }
 
-init();
+function updateCardTitle(card) {
+    let title = card.querySelector('div:first-child');
+
+    if (card.querySelector('input').checked) {
+        title.classList.remove('bg-slate-600');
+        title.classList.add('bg-lime-500');
+    } else {
+        title.classList.add('bg-slate-600');
+        title.classList.remove('bg-lime-500');
+    }
+}
+
+
 
 const cards = document.querySelectorAll('#card-container>div');
+init();
 const countdown = setInterval(() => {
     const now = moment().valueOf();
     let changed = false;
 
     for (let card of cards) {
+        if (card.querySelector('input').checked) {
+            card.querySelector('div:nth-child(2)').textContent = 'Completed';
+            continue;
+        }
+
         let ts = (card.getAttribute('data-start-at'));
         if (ts > now) {
             let remains = moment.utc((ts - now)).format('HH:mm:ss');
