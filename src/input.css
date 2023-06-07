@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card {
+  @apply text-center py-2 text-xl font-bold border-b bg-slate-600 text-white;
+}
+
+.badge {
+  @apply rounded-full bg-cyan-400 text-white;
+}

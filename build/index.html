@@ -6,41 +6,93 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+    integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
-<body>
+<body class="font-['Alegreya']">
   <nav class="flex justify-between items-center px-4 py-4 border-b-2 shadow-md">
     <div class="font-bold text-xl text-cyan-600">GW2 Daily Tracker</div>
     <div>Settings</div>
   </nav>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pt-10 px-4">
+  <div id="card-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pt-10 px-4">
     <!-- time-card -->
-    <div name="LLA" class="flex flex-col h-64 border rounded-md shadow-md overflow-hidden">
-      <div class="text-center py-2 text-xl font-bold border-b bg-slate-600 text-white">Ley-Line Anomaly</div>
-      <div class="text-center py-2 text-lg">01:59:59</div>
+    <div name="Teq" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
+      <div class="text-center py-2 text-xl font-bold border-b bg-slate-600 text-white">Tequal the Sunless</div>
+      <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
+      <div name="info" class="border-b-2 px-4 py-2">
+        <div><input type="checkbox"> Completed</div>
+        <div>location : [&BNABAAA=]</div>
+        <div></div>
+      </div>
+      <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
+      </div>
     </div>
-    <div name="Teq" class="flex flex-col h-64 border rounded-md shadow-md overflow-hidden">
-      <div class="text-center py-2 text-lg font-bold border-b bg-slate-600 text-white">Tequatl the Sunless</div>
-      <div class="text-center py-2 text-lg">01:59:59</div>
+    <div name="LLA" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
+      <div class="card">Ley-Line Anomaly</div>
+      <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
+      <div name="info" class="border-b-2 px-4 py-2">
+        <div><input type="checkbox"> Completed</div>
+        <div>location</div>
+        <div></div>
+      </div>
+      <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
+      </div>
     </div>
-    <div name="TT" class="flex flex-col h-64 border rounded-md shadow-md overflow-hidden">
-      <div class="text-center py-2 text-lg font-bold border-b bg-slate-600 text-white">Triple Trouble</div>
-      <div class="text-center py-2 text-lg">01:59:59</div>
+    <div name="TT" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
+      <div class="card">Triple Trouble</div>
+      <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
+      <div name="info" class="border-b-2 px-4 py-2">
+        <div><input type="checkbox"> Completed</div>
+        <div>location</div>
+        <div></div>
+      </div>
+      <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
+      </div>
     </div>
-    <div name="DS" class="flex flex-col h-64 border rounded-md shadow-md overflow-hidden">
-      <div class="text-center py-2 text-lg font-bold border-b bg-slate-600 text-white">Dragon Storm</div>
-      <div class="text-center py-2 text-lg">01:59:59</div>
+    <div name="Drakkar" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
+      <div class="card">Drakkar</div>
+      <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
+      <div name="info" class="border-b-2 px-4 py-2">
+        <div><input type="checkbox"> Completed</div>
+        <div>location</div>
+        <div></div>
+      </div>
+      <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
+      </div>
     </div>
-    <div name="VB-night-boss" class="flex flex-col h-64 border rounded-md shadow-md overflow-hidden">
-      <div class="text-center py-2 text-lg font-bold border-b bg-slate-600 text-white">VB Night Boss</div>
-      <div class="text-center py-2 text-lg">01:59:59</div>
+    <div name="DS" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
+      <div class="card">Dragon Storm</div>
+      <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
+      <div name="info" class="border-b-2 px-4 py-2">
+        <div><input type="checkbox"> Completed</div>
+        <div>location</div>
+        <div></div>
+      </div>
+      <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
+      </div>
     </div>
-    <div name="Drakkar" class="flex flex-col h-64 border rounded-md shadow-md overflow-hidden">
-      <div class="text-center py-2 text-lg font-bold border-b bg-slate-600 text-white">Drakkar</div>
-      <div class="text-center py-2 text-lg">01:59:59</div>
+    <div name="VB" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
+      <div class="card">VB Night Boss</div>
+      <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
+      <div name="info" class="border-b-2 px-4 py-2">
+        <div><input type="checkbox"> Completed</div>
+        <div>location</div>
+        <div></div>
+      </div>
+      <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
+      </div>
     </div>
   </div>
+  <!-- <script src="app.js"></script> -->
+  <script src="app.js"></script>
 </body>
 
 </html>
