@@ -136,7 +136,7 @@ const countdown = setInterval(() => {
             let remains = moment.utc((ts - now)).format('HH:mm:ss');
             card.querySelector('div:nth-child(2)').textContent = remains;
         }
-        else if ((now - ts) <= 180) {
+        else if ((now - ts) <= 180000) {
             card.querySelector('div:nth-child(2)').textContent = "ACTIVE";
         } else {
             setStartTime(card, moment(), et.getTimeList(card.getAttribute('name')));
