@@ -154,10 +154,8 @@ function highlightLLALoc() {
     })
 }
 
-
-const cards = document.querySelectorAll('#card-container>div');
-init();
-const countdown = setInterval(() => {
+function updateCards() {
+    const cards = document.querySelectorAll('#card-container>div');
     const now = moment().valueOf();
     let changed = false;
 
@@ -185,4 +183,8 @@ const countdown = setInterval(() => {
     }
     if (changed)
         sortCards(cards);
-}, 1000);
+}
+
+init();
+updateCards();
+setInterval(updateCards, 1000);
