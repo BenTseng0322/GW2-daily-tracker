@@ -54,6 +54,14 @@ const init = () => {
             sortCards(cards);
         });
     }
+
+    document.querySelectorAll('span[name="wp"]').forEach((ele) => {
+        ele.addEventListener('click', (event) => {
+            copyWP(event.target)
+        })
+    });
+
+    highlightLLALoc();
 };
 
 const updateTimeList = (card, timeList) => {
@@ -61,7 +69,7 @@ const updateTimeList = (card, timeList) => {
     timeList.sort((a, b) => a.format('HH:mm') > b.format('HH:mm'))
         .map(t => t.format('HH:mm:ss'))
         .forEach(t => {
-            ele.innerHTML += `<div class="text-sm py-1 px-2 mr-3 tracking-wider">${t}</div>`;
+            ele.innerHTML += `<div class="text-sm py-px px-2 mr-3 tracking-wider">${t}</div>`;
         })
 }
 
@@ -117,6 +125,34 @@ function updateCardTitle(card) {
     }
 }
 
+function copyWP(ele) {
+    let input = document.querySelector('input#copy');
+    let _alert = ele.parentElement.querySelector('span[name="alert"]')
+
+    input.value = ele.textContent;
+    input.select();
+    navigator.clipboard.writeText(input.value);
+
+    _alert.classList.remove('hidden');
+    setTimeout(() => {
+        _alert.classList.add('hidden');
+    }, 1000);
+}
+
+function highlightLLALoc() {
+    let card = document.querySelector('div[name="LLA"]');
+    let time = card.getAttribute('data-start-at');
+    let hour = moment(parseInt(time)).utc().format('h');
+    let cur_index = (parseInt(hour) / 2) % 3;
+    card.querySelectorAll('span[data-index').forEach((span) => {
+        let data_index = span.getAttribute('data-index');
+        if (data_index == cur_index) {
+            span.classList.add('badge');
+        } else {
+            span.classList.remove('badge');
+        }
+    })
+}
 
 
 const cards = document.querySelectorAll('#card-container>div');
@@ -139,9 +175,12 @@ const countdown = setInterval(() => {
         else if ((now - ts) <= 180000) {
             card.querySelector('div:nth-child(2)').textContent = "ACTIVE";
         } else {
+            changed = true;
             setStartTime(card, moment(), et.getTimeList(card.getAttribute('name')));
             hightlightNext(card);
-            changed = true;
+
+            if (card.getAttribute('name') == 'LLA')
+                highlightLLALoc();
         }
     }
     if (changed)
