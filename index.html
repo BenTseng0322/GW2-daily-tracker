@@ -20,20 +20,25 @@
 <body class="font-['Alegreya']">
   <nav class="flex justify-between items-center px-4 py-4 border-b-2 shadow-md">
     <div class="font-bold text-xl text-cyan-600">GW2 Daily Tracker</div>
-    <div>Settings</div>
+    <div></div>
   </nav>
   <div id="card-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto pt-10 px-4">
     <!-- time-card -->
     <div name="Teq" class="flex flex-col h-fit border rounded-md shadow-md overflow-hidden">
-      <div class="title bg-slate-600">Tequal the Sunless</div>
+      <div class="title bg-slate-600">Tequatl the Sunless</div>
       <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
       <div name="info" class="border-b-2 px-4 py-2">
-        <div><input type="checkbox" id="Teq"><label for="Teq" class="pl-2 cursor-pointer">Completed</label></div>
-        <div>Location: Sparkfly Fen
-          <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BNABAAA=]</span>
-          <span name="alert" class="hidden">Copied!</span>
+        <div class="pl-2 mb-1">
+          <input type="checkbox" id="Teq"><label for="Teq" class="pl-2 cursor-pointer">Completed</label>
         </div>
-        <div></div>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span class="mx-2">Sparkfly Fen</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BNABAAA=]</span>
+            <span name="alert" class="hidden">Copied!</span>
+          </div>
+        </div>
       </div>
       <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
       </div>
@@ -42,28 +47,34 @@
       <div class="title bg-slate-600">Ley-Line Anomaly</div>
       <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
       <div name="info" class="border-b-2 px-4 py-2">
-        <div><input type="checkbox" id="LLA"><label for="LLA" class="pl-2 cursor-pointer">Completed</label></div>
-        <div class="flex">
-          <div>Location:</div>
-          <div class="ml-2">
-            <div>
-              <span data-index="0" class="px-2 py-px">Timberline Falls</span>
-              <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BEwCAAA=]</span>
-              <span name="alert" class="hidden">Copied!</span>
-            </div>
-            <div>
-              <span data-index="1" class="px-2 py-px">Iron Marches</span>
-              <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BOcBAAA=]</span>
-              <span name="alert" class="hidden">Copied!</span>
-            </div>
-            <div>
-              <span data-index="2" class="px-2 py-px">Gendarran Fields</span>
-              <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BOQAAAA=]</span>
-              <span name="alert" class="hidden">Copied!</span>
-            </div>
+        <div class="pl-2 mb-1">
+          <input type="checkbox" id="LLA"><label for="LLA" class="pl-2 cursor-pointer">Completed</label>
+        </div>
+
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span data-index="0" class="px-2 py-px mx-2">Timberline Falls</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BEwCAAA=]</span>
+            <span name="alert" class="hidden">Copied!</span>
           </div>
         </div>
-        <div></div>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span data-index="1" class="px-2 py-px">Iron Marches</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BOcBAAA=]</span>
+            <span name="alert" class="hidden">Copied!</span>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span data-index="2" class="px-2 py-px">Gendarran Fields</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BOQAAAA=]</span>
+            <span name="alert" class="hidden">Copied!</span>
+          </div>
+        </div>
       </div>
       <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
       </div>
@@ -72,12 +83,17 @@
       <div class="title bg-slate-600">Triple Trouble</div>
       <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
       <div name="info" class="border-b-2 px-4 py-2">
-        <div><input type="checkbox" id="TT"><label for="TT" class="pl-2 cursor-pointer">Completed</label></div>
-        <div>Location: Bloodtide Coast
-          <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BKoBAAA=]</span>
-          <span name="alert" class="hidden">Copied!</span>
+        <div class="pl-2 mb-1">
+          <input type="checkbox" id="TT"><label for="TT" class="pl-2 cursor-pointer">Completed</label>
         </div>
-        <div></div>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span class="mx-2">Bloodtide Coast</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BKoBAAA=]</span>
+            <span name="alert" class="hidden">Copied!</span>
+          </div>
+        </div>
       </div>
       <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
       </div>
@@ -86,13 +102,17 @@
       <div class="title bg-slate-600">Drakkar</div>
       <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
       <div name="info" class="border-b-2 px-4 py-2">
-        <div><input type="checkbox" id="Drakkar"><label for="Drakkar" class="pl-2 cursor-pointer">Completed</label>
+        <div class="pl-2 mb-1">
+          <input type="checkbox" id="Drakkar"><label for="Drakkar" class="pl-2 cursor-pointer">Completed</label>
         </div>
-        <div>Location: Bjora Marches
-          <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BDkMAAA=]</span>
-          <span name="alert" class="hidden">Copied!</span>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span class="mx-2"> Bjora Marches</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BDkMAAA=]</span>
+            <span name="alert" class="hidden ml-1">Copied!</span>
+          </div>
         </div>
-        <div></div>
       </div>
       <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
       </div>
@@ -101,9 +121,15 @@
       <div class="title bg-slate-600">Dragon Storm</div>
       <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
       <div name="info" class="border-b-2 px-4 py-2">
-        <div><input type="checkbox" id="DS"><label for="DS" class="pl-2 cursor-pointer">Completed</label></div>
-        <div>Location: Eye of the North</div>
-        <div></div>
+        <div class="pl-2 mb-1">
+          <input type="checkbox" id="DS"><label for="DS" class="pl-2 cursor-pointer">Completed</label>
+        </div>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span class="mx-2">Eye of the North</span>
+          </div>
+        </div>
       </div>
       <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
       </div>
@@ -112,13 +138,17 @@
       <div class="title bg-slate-600">VB Night Boss</div>
       <div class="text-center py-2 text-lg font-bold tracking-wider">00:00:00</div>
       <div name="info" class="border-b-2 px-4 py-2">
-        <div><input type="checkbox" id="VB"><label for="VB" class="pl-2 cursor-pointer">Completed</label></div>
-        <div>Location: Verdant Brink
-          <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BAgIAAA=]</span>
-          <span name="alert" class="hidden">Copied!</span>
-          <span></span>
+        <div class="pl-2 mb-1">
+          <input type="checkbox" id="VB"><label for="VB" class="pl-2 cursor-pointer">Completed</label>
         </div>
-        <div></div>
+        <div class="flex items-start">
+          <img src="build/img/waypoint.png" alt="" class="w-7 h-7">
+          <div>
+            <span class="mx-2">Verdant Brink</span>
+            <span name="wp" class="text-sm cursor-pointer text-sky-400">[&BAgIAAA=]</span>
+            <span name="alert" class="hidden">Copied!</span>
+          </div>
+        </div>
       </div>
       <div name="time-list" class="flex flex-col gap-1 flex-wrap h-32 w-36 pt-2 pl-4">
       </div>
@@ -127,7 +157,6 @@
   <br>
   <input id="copy" type="text" class="hidden">
 
-  <!-- <script src="app.js"></script> -->
   <script src="build/app.js"></script>
 </body>
 
