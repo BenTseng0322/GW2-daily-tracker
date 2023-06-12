@@ -95,7 +95,7 @@ const sortCards = (cards) => {
 
     Array.from(cards).filter(card => card.querySelector('input:checked') == null)
         .sort((a, b) => {
-            return a.getAttribute("data-start-at") > b.getAttribute("data-start-at");
+            return a.getAttribute("data-start-at") > b.getAttribute("data-start-at") ? 1 : -1;
         })
         .forEach((ele, index) => {
             ele.style.order = index;
