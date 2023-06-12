@@ -36,6 +36,8 @@ const et = new (eventTimer);
 
 
 const init = () => {
+    initAlarm();
+
     const cards = document.querySelectorAll('#card-container>div');
     let now = moment();
     for (const card of cards) {
@@ -169,6 +171,11 @@ function updateCards() {
         if (ts > now) {
             let remains = moment.utc((ts - now)).format('HH:mm:ss');
             card.querySelector('div:nth-child(2)').textContent = remains;
+
+            if (localStorage.getItem('alarm') == 'on'
+                && ts - now <= _alarmBefore[card.getAttribute('name')] * 1000
+            )
+                enableAlarm(card);
         }
         else if ((now - ts) <= 180000) {
             card.querySelector('div:nth-child(2)').textContent = "ACTIVE";
@@ -177,13 +184,69 @@ function updateCards() {
             setStartTime(card, moment(), et.getTimeList(card.getAttribute('name')));
             hightlightNext(card);
 
+            // remove alarm done flag
+            card.removeAttribute('data-alarm-done');
+
             if (card.getAttribute('name') == 'LLA')
                 highlightLLALoc();
         }
     }
+
     if (changed)
         sortCards(cards);
 }
+
+function initAlarm() {
+    let alarm = document.querySelector('svg#alarm');
+
+    let isEnabled = localStorage.getItem('alarm');
+    if (isEnabled == undefined) {
+        isEnabled == 'off';
+        localStorage.setItem('alarm', 'off');
+    }
+
+    if (isEnabled == 'on') {
+        alarm.classList.remove('text-gray-400');
+        alarm.classList.add('text-green-400');
+    } else {
+        alarm.classList.remove('text-green-400');
+        alarm.classList.add('text-gray-400');
+    }
+
+    alarm.addEventListener('click', toggleAlarm);
+}
+
+function toggleAlarm() {
+    let alarm = document.querySelector('svg#alarm');
+    let isEnabled = localStorage.getItem('alarm');
+    isEnabled = (isEnabled == 'on') ? 'off' : 'on';
+
+    localStorage.setItem('alarm', isEnabled);
+
+    alarm.classList.toggle('text-gray-400');
+    alarm.classList.toggle('text-green-400');
+}
+
+function enableAlarm(card) {
+    if (!card.hasAttribute('data-alarm-done')) {
+        card.setAttribute('data-alarm-done', 'true');
+        _audio.play();
+        setTimeout(() => {
+            _audio.play();
+        }, 2000);
+    }
+}
+
+
+let _audio = new Audio('build/mario.mp3');
+let _alarmBefore = {
+    'Teq': 600, // 10 mins
+    'LLA': 180,
+    'TT': 600,
+    'Drakkar': 180,
+    'DS': 180,
+    'VB': 180
+};
 
 init();
 updateCards();
