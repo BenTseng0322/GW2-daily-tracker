@@ -1,20 +1,3 @@
-<style>
-  @keyframes slide-keyframe {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-102%);
-    }
-  }
-
-  .slidein {
-    animation-name: slide-keyframe;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-  }
-</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +15,23 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
     rel="stylesheet">
+  <style>
+    @keyframes slide-keyframe {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-102%);
+      }
+    }
+
+    .slidein {
+      animation-name: slide-keyframe;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+    }
+  </style>
 </head>
 
 <body class="font-['Alegreya']">
