@@ -230,11 +230,26 @@ function toggleAlarm() {
 function enableAlarm(card) {
     if (!card.hasAttribute('data-alarm-done')) {
         card.setAttribute('data-alarm-done', 'true');
-        _audio.play();
+        playSound(true);
         setTimeout(() => {
-            _audio.play();
+            playSound();
         }, 2000);
     }
+}
+
+function playSound(alert = false) {
+    _audio.play()
+        .catch(() => {
+            if (alert)
+                showAlarmAlert();
+        })
+}
+
+function showAlarmAlert() {
+    let toast = document.querySelector('#toast-warning');
+    console.log(toast);
+    toast.classList.remove('hidden', 'opacity-0');
+    toast.classList.add('slidein');
 }
 
 
