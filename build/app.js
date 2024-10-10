@@ -180,7 +180,7 @@ function updateCards() {
             )
                 enableAlarm(card);
         }
-        else if ((now - ts) <= 180000) {
+        else if ((now - ts) <= 600000) {
             card.querySelector('div:nth-child(2)').textContent = "ACTIVE";
         } else {
             changed = true;
