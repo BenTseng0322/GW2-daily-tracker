@@ -10,7 +10,9 @@ class eventTimer {
         VB: "even:10",
         Skywatch: "odd:00",
         Amnytas: "even:00",
-        Convergences: ["01:30", "04:30", "07:30", "10:30", "13:30", "16:30", "19:30", "22:30"]
+        Convergences: ["01:30", "04:30", "07:30", "10:30", "13:30", "16:30", "19:30", "22:30"],
+        AB: "even:40",
+        DST: "odd:30"
     };
 
     getTimeList(event) {
